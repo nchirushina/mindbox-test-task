@@ -1,9 +1,9 @@
 ﻿namespace MindboxCalculator.Exceptions
 {
-    internal class UnvalidTriangleInput : Exception
+    public class UnvalidTriangleInput : Exception
     {
-        private string Message { get; set; }
-        internal UnvalidTriangleInput(string message)
+        public override string Message { get; }
+        public UnvalidTriangleInput(string message)
         {
             this.Message = message;
         }
