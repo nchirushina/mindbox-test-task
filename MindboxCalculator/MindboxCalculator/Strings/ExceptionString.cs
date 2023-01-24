@@ -12,5 +12,6 @@ namespace MindboxCalculator.Strings
             @"Если большая сторона треугольника меньше суммы двух других сторон, значит треугольник существует, иначе он не существует";
 
         internal static string UncorrectInput { get; } = "Не корректный ввод. Введите число, большее нуля";
+        internal static string UnknownFigure { get; } = "Вам нужно создать новый тип фигур c таким количеством параметров";
     }
 }

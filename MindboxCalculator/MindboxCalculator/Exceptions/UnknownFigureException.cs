@@ -1,9 +1,10 @@
 ﻿namespace MindboxCalculator.Exceptions
 {
-    public class UnvalidTriangleInput : Exception
+    public class UnknownFigureException : Exception
     {
         public override string Message { get; }
-        public UnvalidTriangleInput(string message)
+
+        public UnknownFigureException(string message)
         {
             this.Message = message;
         }

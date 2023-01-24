@@ -35,7 +35,7 @@ namespace MindboxCalculator.Tests
 
 
             //Assert
-            Assert.ThrowsException<UnvalidTriangleInput>(
+            Assert.ThrowsException<UnvalidTriangleInputException>(
                 () => new Triangle(firstSide, seconSide, thirdSide));
         }
     }
