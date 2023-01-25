@@ -24,8 +24,16 @@ namespace MindboxCalculator.Figures
 
             if (!IsTriangleExist())
             {
-                throw new UnvalidTriangleInput(ExceptionString.TriangleIsNotExist);
+                throw new UnvalidTriangleInputException(ExceptionString.TriangleIsNotExist);
             }
+        }
+
+        public Triangle(List<double> parameters)
+            :this(
+                 parameters[0],
+                 parameters[1],
+                 parameters[2])
+        {
         }
 
         private bool IsTriangleExist()

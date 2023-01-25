@@ -14,6 +14,11 @@ namespace MindboxCalculator.Figures
             this.Radius = radius;
         }
 
+        public Circle(List<double> parameters)
+            : this(parameters[0])
+        {
+        }
+
         public override double GetSquare()
         {
             var square = Pi * Radius * Radius;
