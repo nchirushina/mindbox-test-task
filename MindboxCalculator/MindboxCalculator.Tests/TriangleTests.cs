@@ -38,5 +38,23 @@ namespace MindboxCalculator.Tests
             Assert.ThrowsException<UnvalidTriangleInputException>(
                 () => new Triangle(firstSide, seconSide, thirdSide));
         }
+
+        [TestMethod]
+        public void WhenRectangularTriangleInput_ThenTrueRectangularProperty()
+        {
+            //Arrange
+            var firstSide = 3;
+            var seconSide = 4;
+            var thirdSide = 5;
+
+            var expectedProperty = true;
+
+            //Act
+            var testTriangle = new Triangle(firstSide, seconSide, thirdSide);
+            var property = testTriangle.IsRectangular;
+
+            //Assert
+            Assert.AreEqual(expectedProperty, property);
+        }
     }
 }

@@ -1,12 +1,15 @@
 ﻿using MindboxCalculator.Configuration;
 using MindboxCalculator.Exceptions;
+using MindboxCalculator.Interfaces;
 using MindboxCalculator.Strings;
 
 namespace MindboxCalculator.Figures
 {
-    public class Triangle : AbstractFigure
+    public class Triangle : AbstractFigure, IRectangularCheck
     {
         private List<double> SidesDesc { get; set; }
+        public bool IsRectangular { get; init; }
+
         public Triangle(
             double firstSide,
             double secondSide,
@@ -26,10 +29,12 @@ namespace MindboxCalculator.Figures
             {
                 throw new UnvalidTriangleInputException(ExceptionString.TriangleIsNotExist);
             }
+
+            this.IsRectangular = RectangularCheck();
         }
 
         public Triangle(List<double> parameters)
-            :this(
+            : this(
                  parameters[0],
                  parameters[1],
                  parameters[2])
@@ -70,6 +75,24 @@ namespace MindboxCalculator.Figures
             square = Math.Round(square, CalculatorConfig.Accuracy);
 
             return square;
+        }
+
+        public bool RectangularCheck()
+        {
+            var squaredHupotenuse = Math.Pow(this.SidesDesc[0], 2);
+            var sumOfSquaredCathets =
+                Math.Pow(this.SidesDesc[1], 2)
+                + Math.Pow(this.SidesDesc[2], 2);
+
+            squaredHupotenuse = Math.Round(squaredHupotenuse, CalculatorConfig.InnerEstimationAccuracy);
+            sumOfSquaredCathets = Math.Round(sumOfSquaredCathets, CalculatorConfig.InnerEstimationAccuracy);
+
+            if (squaredHupotenuse == sumOfSquaredCathets)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
